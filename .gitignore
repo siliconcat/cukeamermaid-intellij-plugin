@@ -4,8 +4,6 @@
 tmp
 dump
 
-*.zip
-
 # IntelliJ
 .idea
 out
