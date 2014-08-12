@@ -1,0 +1,74 @@
+<idea-plugin version="2">
+  <id>cat.silicon.cukeamermaid</id>
+  <name>Cuke-a-mermaid plugin</name>
+  <version>1.1</version>
+  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">Mermaid Team</vendor>
+
+  <description><![CDATA[
+      Enter short description for your plugin here.<br>
+      <em>most HTML tags may be used</em>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="131"/>
+
+  <!-- please see http://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <application-components>
+    <!-- Add your application components here -->
+  </application-components>
+
+  <project-components>
+    <!-- Add your project components here -->
+  </project-components>
+
+  <actions>
+    <!-- Add your actions here -->
+      <action id="CukeAMermaid.Gherkin2Mermaid" class="sc.cukeamermaid.plugin.Gherkin2Mermaid" text="Cuke -> Mermaid"
+              description="Converts from Gherkin to the Scala Test &quot;Mermaid&quot; format">
+          <keyboard-shortcut keymap="$default" first-keystroke="ctrl meta alt EQUALS"/>
+      </action>
+      <action id="CukeAMermaid.Mermaid2Gherkin" class="sc.cukeamermaid.plugin.Mermaid2Gherkin" text="Mermaid -> Cuke"
+              description="Converts from Scala Test Mermaid to Gherkin format">
+          <keyboard-shortcut keymap="$default" first-keystroke="ctrl meta EQUALS"/>
+      </action>
+
+      <group id="Actions.ActionsPlugin.SampleGroup" text="_Mermaid" description="Tools for mermaids">
+          <reference ref="CukeAMermaid.Gherkin2Mermaid"/>
+          <reference ref="CukeAMermaid.Mermaid2Gherkin"/>
+
+          <!--adds this group to the main menu-->
+          <add-to-group group-id="MainMenu" anchor="last"/>
+          <!--adds this group to the main toolbar before the Help action-->
+          <add-to-group group-id="MainToolBar" anchor="before" relative-to-action="HelpTopics"/>
+      </group>
+
+      <group id="Actions.ActionsPlugin.SampleGroup" text="_Mermaid" description="Tools for mermaids">
+          <separator/>
+          <reference ref="CukeAMermaid.Gherkin2Mermaid"/>
+          <reference ref="CukeAMermaid.Mermaid2Gherkin"/>
+
+          <!--adds this group to the main menu-->
+          <!--<add-to-group group-id="MainMenu" anchor="last"/>-->
+          <!--adds this group to the main toolbar before the Help action-->
+          <!--<add-to-group group-id="MainToolBar" anchor="before" relative-to-action="HelpTopics"/>-->
+          <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="CutCopyPasteGroup"/>
+      </group>
+
+  </actions>
+
+</idea-plugin>
